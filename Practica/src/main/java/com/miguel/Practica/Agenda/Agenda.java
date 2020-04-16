@@ -1,59 +1,45 @@
 package com.miguel.Practica.Agenda;
 
+import java.util.ArrayList;
+
+
+
 public class Agenda {
 	
+	private String id;
+	private ArrayList<Contacto> contacto;
+
 	
-	private String nombre;
-	private String apellidos;
-	private String empresa;
-	private int telefono;
-	private String email;
-	private String direccion;
-	
-	public Agenda(String nombre, String apellidos, String empresa, int telefono, String email, String direccion) {
+	public Agenda(String id, ArrayList<Contacto> contacto) {
 		super();
-		this.nombre = nombre;
-		this.apellidos = apellidos;
-		this.empresa = empresa;
-		this.telefono = telefono;
-		this.email = email;
-		this.direccion = direccion;
+		this.contacto = contacto;
+		this.id = id;
 	}
-	public String getNombre() {
-		return nombre;
+	
+	public Agenda() {
+		super();
+
 	}
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	
+
+	public String getId() {
+		return id;
 	}
-	public String getApellidos() {
-		return apellidos;
+
+
+	public void setId(String id) {
+		this.id = id;
 	}
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+
+	public ArrayList<Contacto> getContacto() {
+		return contacto;
 	}
-	public String getEmpresa() {
-		return empresa;
+
+	public void setContacto(ArrayList<Contacto> contacto) {
+		this.contacto = contacto;
 	}
-	public void setEmpresa(String empresa) {
-		this.empresa = empresa;
-	}
-	public int getTelefono() {
-		return telefono;
-	}
-	public void setTelefono(int telefono) {
-		this.telefono = telefono;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getDireccion() {
-		return direccion;
-	}
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
-	}
+
+
+
 	
 }

@@ -2,6 +2,7 @@ package com.miguel.Practica;
 
 import javax.servlet.annotation.WebServlet;
 
+import com.miguel.Practica.Agenda.Agenda;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
@@ -22,6 +23,12 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class MyUI extends UI {
 
+	Agenda agenda = new Agenda();
+	
+	
+
+	
+	
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
