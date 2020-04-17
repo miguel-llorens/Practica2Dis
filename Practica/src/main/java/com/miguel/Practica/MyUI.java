@@ -31,7 +31,7 @@ public class MyUI extends UI {
 	TextField find = new TextField();
     Grid<Contacto> contactList = new Grid<>(Contacto.class);
     Button botonNewContact = new Button("Nuevo Contacto");
-    ContactForm contactFrom = new ContactForm();	
+    ContactForm contactForm = new ContactForm();	
     
     
     @Override
@@ -47,7 +47,7 @@ public class MyUI extends UI {
     
     private void configureComponents() {
     	
-    	botonNewContact.addClickListener(e -> contactForm.edit(agenda.contacto));
+    	//botonNewContact.addClickListener(e -> contactForm.edit(agenda.addContact()));
     	
     	
     	find.setValue("Busca un contacto");
@@ -72,12 +72,10 @@ public class MyUI extends UI {
         contactList.setSizeFull();
         left.setExpandRatio(contactList, 1);
 
-        HorizontalLayout mainLayout = new HorizontalLayout(left, contactFrom);
+        HorizontalLayout mainLayout = new HorizontalLayout(left, contactForm);
         mainLayout.setSizeFull();
         mainLayout.setExpandRatio(left, 1);
 
-        // Split and allow resizing
-        setContent(mainLayout);
         // Split and allow resizing
         setContent(mainLayout);
     }
