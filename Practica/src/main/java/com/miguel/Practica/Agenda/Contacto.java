@@ -2,7 +2,7 @@ package com.miguel.Practica.Agenda;
 
 public class Contacto {
 
-	
+	private String id;
 	private String nombre;
 	private String apellidos;
 	private String empresa;
@@ -60,5 +60,10 @@ public class Contacto {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 }
