@@ -37,10 +37,10 @@ public class Agenda {
 		contactos.add(contacto);
 	}
 
-	/*public ArrayList<Contacto> getContacto() {
+	public ArrayList<Contacto> getContacto() {
 		return this.contactos;
 	}
-
+/*
 	public void setContacto(ArrayList<Contacto> contacto) {
 		this.contacto = contacto;
 	}

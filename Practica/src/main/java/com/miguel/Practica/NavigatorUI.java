@@ -38,14 +38,27 @@ public class NavigatorUI extends UI {
         final TextField number = new TextField("type number:");
         final TextField email= new TextField("type email:");
         final TextField adress = new TextField("type adress:");
-        
-
         Button button = new Button("Add Contact");
+        
+        Grid<Contacto> grid = new Grid<>();
+    	grid.setItems(agenda.getContacto());
+    	grid.addColumn(Contacto::getNombre).setCaption("Name");
+    	grid.addColumn(Contacto::getApellidos).setCaption("Surname");
+    	grid.addColumn(Contacto::getEmpresa).setCaption("Business");
+    	grid.addColumn(Contacto::getTelefono).setCaption("Number");
+    	grid.addColumn(Contacto::getEmail).setCaption("Email");
+    	grid.addColumn(Contacto::getDireccion).setCaption("Adress");
+    	
+        
         button.addClickListener(e -> {
         	agenda.crearContacto(name.getValue(), surname.getValue(), business.getValue(), Integer.parseInt(number.getValue()), email.getValue(), adress.getValue());
-            vlayout.addComponent(new Label("Thanks " + surname.getValue()
+        	grid.setItems(agenda.getContacto());
+        	vlayout.addComponent(new Label("Contact Add " + name.getValue()
                    + ", it works!"));
         });
+        
+        vlayout.addComponents(name,surname,business,number,email,adress,button,grid);
+    	setContent(vlayout);
         /*Grid<Contacto> grid = new Grid<>(Contacto.class);
         grid.setItems(contactos);
 
@@ -55,8 +68,8 @@ public class NavigatorUI extends UI {
         // reorder the properties we use the 'setColumns' method.
         grid.setColumns("firstName", "lastName", "age", "address",
                 "phoneNumber");*/
-        hlayout.addComponents(name, surname, business, number, email, adress);
-        vlayout.addComponents(hlayout, button);
+        //hlayout.addComponents(name, surname, business, number, email, adress);
+        //vlayout.addComponents(hlayout, button);
         //surname, business, number, email, adress, 
         setContent(vlayout);
     }
