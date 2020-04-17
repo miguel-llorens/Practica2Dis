@@ -32,15 +32,18 @@ public class NavigatorUI extends UI {
    
         final HorizontalLayout hlayout = new HorizontalLayout();
         final VerticalLayout vlayout = new VerticalLayout();
-        final TextField name = new TextField("type name:");
-        final TextField surname = new TextField("type surname:");
-        final TextField business = new TextField("type business:");
-        final TextField number = new TextField("type number:");
-        final TextField email= new TextField("type email:");
-        final TextField adress = new TextField("type adress:");
+        final TextField name = new TextField();
+        name.setValue("Name");
+        //name.setClearButtonVisible(true);
+        final TextField surname = new TextField();
+        final TextField business = new TextField();
+        final TextField number = new TextField();
+        final TextField email= new TextField();
+        final TextField adress = new TextField();
         Button button = new Button("Add Contact");
         
         Grid<Contacto> grid = new Grid<>();
+        grid.setWidth("100%");
     	grid.setItems(agenda.getContacto());
     	grid.addColumn(Contacto::getNombre).setCaption("Name");
     	grid.addColumn(Contacto::getApellidos).setCaption("Surname");
@@ -57,21 +60,10 @@ public class NavigatorUI extends UI {
                    + ", it works!"));
         });
         
-        vlayout.addComponents(name,surname,business,number,email,adress,button,grid);
+        hlayout.addComponents(name,surname,business,number,email,adress,button);
+        vlayout.addComponents(hlayout, grid);
     	setContent(vlayout);
-        /*Grid<Contacto> grid = new Grid<>(Contacto.class);
-        grid.setItems(contactos);
-
-        grid.removeColumnByKey("id");
-
-        // The Grid<>(Person.class) sorts the properties and in order to
-        // reorder the properties we use the 'setColumns' method.
-        grid.setColumns("firstName", "lastName", "age", "address",
-                "phoneNumber");*/
-        //hlayout.addComponents(name, surname, business, number, email, adress);
-        //vlayout.addComponents(hlayout, button);
-        //surname, business, number, email, adress, 
-        setContent(vlayout);
+     
     }
 
     @WebServlet(urlPatterns = "/*", name = "MyUIServlet", asyncSupported = true)
