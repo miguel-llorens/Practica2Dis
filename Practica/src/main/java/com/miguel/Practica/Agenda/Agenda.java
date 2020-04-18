@@ -28,6 +28,11 @@ public class Agenda {
 		contactos.add(nuevoContacto);
 	}
 	
+	public void addContact(Contacto nuevoContacto) {	
+		contactos.add(nuevoContacto);
+	}
+	
+	
 	public void deleteContact(int index) {
 		contactos.remove(index);
 	}

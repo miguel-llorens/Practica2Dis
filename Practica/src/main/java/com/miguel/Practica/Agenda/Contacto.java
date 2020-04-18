@@ -16,7 +16,7 @@ public class Contacto {
 	
 	public Contacto(String nombre, String apellidos, String empresa, int telefono, String email, String direccion) {
 		super();
-		this.nombre = nombre;
+		this.nombre = nombre;	
 		this.apellidos = apellidos;
 		this.empresa = empresa;
 		this.telefono = telefono;
