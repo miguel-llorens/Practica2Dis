@@ -22,7 +22,7 @@ public class Agenda {
 	}
 
 
-	public void addContact(String nombre, String apellidos, String empresa, int telefono,String email, String direccion) {
+	public void addContact(String nombre, String apellidos, String empresa, String telefono,String email, String direccion) {
 		
 		Contacto nuevoContacto = new Contacto(nombre, apellidos, empresa, telefono, email, direccion);
 		contactos.add(nuevoContacto);

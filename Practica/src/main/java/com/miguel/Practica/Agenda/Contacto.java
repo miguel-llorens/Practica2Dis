@@ -6,7 +6,7 @@ public class Contacto {
 	private String nombre;
 	private String apellidos;
 	private String empresa;
-	private int telefono;
+	private String telefono;
 	private String email;
 	private String direccion;
 	
@@ -14,7 +14,7 @@ public class Contacto {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Contacto(String nombre, String apellidos, String empresa, int telefono, String email, String direccion) {
+	public Contacto(String nombre, String apellidos, String empresa, String telefono, String email, String direccion) {
 		super();
 		this.nombre = nombre;	
 		this.apellidos = apellidos;
@@ -42,10 +42,10 @@ public class Contacto {
 	public void setEmpresa(String empresa) {
 		this.empresa = empresa;
 	}
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 	public String getEmail() {

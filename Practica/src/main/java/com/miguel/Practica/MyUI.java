@@ -1,5 +1,7 @@
 package com.miguel.Practica;
 
+import java.util.Set;
+
 import javax.servlet.annotation.WebServlet;
 
 import com.miguel.Practica.Agenda.Agenda;
@@ -38,8 +40,8 @@ public class MyUI extends UI {
     
     @Override
     protected void init(VaadinRequest request) {
-    	agenda.addContact("Pablo", "Garcia","garcilados", 662506, "xsds", "sdfsd");
-    	agenda.addContact("Luis", "Llamazares","vagabundo", 668, "loloito", "asd");
+    	agenda.addContact("Pablo", "Garcia","garcilados", "662506", "xsds", "sdfsd");
+    	agenda.addContact("Luis", "Llamazares","vagabundo", "668", "loloito", "asd");
 
         configureComponents();
         buildLayout();
@@ -62,7 +64,13 @@ public class MyUI extends UI {
     	contactList.removeColumn("direccion");
     	contactList.setColumnOrder("nombre","apellidos","telefono");
     	contactList.setSelectionMode(Grid.SelectionMode.SINGLE);
-    	
+    	contactList.addSelectionListener(e -> {
+    		Set<Contacto> setectedContact = contactList.getSelectedItems();
+    		
+    		if(!setectedContact.isEmpty()) {
+        		contactForm.editContact(contactList.getSelectedItems().iterator().next());
+    		}
+    	});
     	
     	
     }

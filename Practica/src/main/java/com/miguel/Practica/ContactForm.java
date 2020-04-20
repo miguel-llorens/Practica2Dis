@@ -1,5 +1,9 @@
 package com.miguel.Practica;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Locale;
+
 import com.miguel.Practica.Agenda.Agenda;
 import com.miguel.Practica.Agenda.Contacto;
 import com.vaadin.annotations.Theme;
@@ -8,6 +12,7 @@ import com.vaadin.data.Binder;
 import com.vaadin.data.ValidationException;
 import com.vaadin.data.converter.StringToIntegerConverter;
 import com.vaadin.data.validator.EmailValidator;
+import com.vaadin.data.validator.RegexpValidator;
 import com.vaadin.event.ShortcutAction;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
@@ -56,19 +61,19 @@ public class ContactForm extends FormLayout{
 		
 		
 		
-		//binder.forField(email).withValidator(new EmailValidator(
-			//"No parece una direccion de correo valida"))
-			//.bind(Contacto::getEmail, Contacto::setEmail);
+		binder.forField(email)
+			.bind(Contacto::getEmail, Contacto::setEmail);
 
 		binder.forField(nombre).withValidator(
 		    name -> name.length() >= 3,
 		    "Debe contener minimo tres caracteres")
 		  .bind(Contacto::getNombre, Contacto::setNombre);
-		
-		binder.forField(telefono)
-			.withConverter(
-			    new StringToIntegerConverter("Debe ser un número"))
-			 .bind(Contacto::getTelefono, Contacto::setTelefono);
+
+//		
+
+		binder.forField(telefono).withValidator(new RegexpValidator( "Esto no es un numero de telefono","^[0-9]{2,3}-? ?[0-9]{6,7}$"))
+		 .bind(Contacto::getTelefono, Contacto::setTelefono);
+			
 		
 		binder.forField(apellido)
 		  .bind(
@@ -101,21 +106,28 @@ public class ContactForm extends FormLayout{
 	private void buildLayout() {
         setSizeUndefined();
         setMargin(true);
-
+        
+        VerticalLayout vertical = new VerticalLayout ();
+        addComponents(nombre, apellido, telefono, email, empresa);
         HorizontalLayout actions = new HorizontalLayout(save, cancel);
         actions.setSpacing(true);
 
-        addComponents(actions, nombre, apellido, telefono, email, empresa);
+        addComponents(actions);
     }
 	
-	public void editContact(Contacto contacto) {
+	public void editContact(Contacto contactoEdit) {
 		currentState = State.EDIT_CONTACT;
+		contacto = contactoEdit;
+		
+		binder.readBean(contacto);
+		
 		setVisible(true);
 	}
 	
 	public void newContact() {
 		currentState = State.NEW_CONTACT;
 		contacto = new Contacto();
+		binder.readBean(contacto);
 		
 		
 		
@@ -125,6 +137,8 @@ public class ContactForm extends FormLayout{
 	
 	public void save(Button.ClickEvent event) {
 		
+		
+		
 	    try {
 	        binder.writeBean(contacto);
 	        // A real application would also save the updated person
@@ -133,8 +147,8 @@ public class ContactForm extends FormLayout{
 				agenda.addContact(contacto);
 			}
 	      } catch (ValidationException e) {
-	        Notification.show("Person could not be saved, " +
-	          "please check error messages for each field.");
+	        Notification.show("No hemos podido guardar el contanto, " +
+	          "puede haber errores en algun campo.");
 	      }
 
 		getUI().contactList.getDataProvider().refreshAll();
