@@ -40,20 +40,20 @@ public class MyUI extends UI {
 	Json json = new Json();
     Grid<Contacto> contactList = new Grid<>(Contacto.class);
     Button botonNewContact = new Button("Nuevo Contacto");
-    ContactForm contactForm = new ContactForm(agenda);	
+    ContactForm contactForm = new ContactForm(agenda, json);	
     
     
     @Override
     protected void init(VaadinRequest request) {
-    	/*try {
-			agenda = json.leerJson(file);
+    	try {
+			json.leerJson(agenda, file);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
     	agenda.addContact("Pablo", "Garcia","garcilados", "662506", "xsds", "sdfsd");
     	agenda.addContact("Luis", "Llamazares","vagabundo", "668", "loloito", "asd");
-    	json.escribirJson(agenda);
+    	
         configureComponents();
         buildLayout();
         

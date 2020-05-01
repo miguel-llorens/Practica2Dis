@@ -27,12 +27,11 @@ public class Json {
             gson.toJson(contactos, writer);
         } catch (IOException e) {}
 	}
-	public Agenda leerJson(File archivo) throws FileNotFoundException {
-		Agenda agenda = new Agenda();
+	public Agenda leerJson(Agenda escriboAgenda, File archivo) throws FileNotFoundException {
+
 		Gson gson = new Gson();
-		agenda = gson.fromJson(new FileReader(archivo), Agenda.class);  
-		return agenda;   
-    	
+		escriboAgenda = gson.fromJson(new FileReader(archivo), Agenda.class);       
+		return escriboAgenda;
 	}
 	
 	

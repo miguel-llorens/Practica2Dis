@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import com.miguel.Practica.Agenda.Agenda;
 import com.miguel.Practica.Agenda.Contacto;
+import com.miguel.Practica.Agenda.Json;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Binder;
@@ -49,15 +50,19 @@ public class ContactForm extends FormLayout{
     
     State currentState = State.INVISIBLE;
     
+    
+    Json json;
     Agenda agenda;
     Contacto contacto;
     Binder<Contacto> binder;
     
     
 
-	public ContactForm(Agenda agendaPasada) {
+	public ContactForm(Agenda agendaPasada, Json jsonPasado) {
 		
 		agenda = agendaPasada;
+		
+		json = jsonPasado;
 		
 		binder = new Binder<>();
 		
@@ -145,12 +150,13 @@ public class ContactForm extends FormLayout{
 	        // using the application's backend
 			if (currentState == State.NEW_CONTACT) {
 				agenda.addContact(contacto);
+				
 			}
 	      } catch (ValidationException e) {
 	        Notification.show("No hemos podido guardar el contanto, " +
 	          "puede haber errores en algun campo.");
 	      }
-
+	    json.escribirJson(agenda);
 		getUI().contactList.getDataProvider().refreshAll();
 		currentState = State.INVISIBLE;
 		setVisible(false);
