@@ -1,5 +1,8 @@
 package com.miguel.Practica.Agenda;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
@@ -7,6 +10,8 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+import com.vaadin.ui.Dependency.Type;
 
 
 
@@ -17,7 +22,7 @@ public class Agenda {
 
 	
 	public Agenda() {
-		super();
+		//super();
 	}
 	
 
@@ -42,21 +47,28 @@ public class Agenda {
 	public void deleteContact(int index) {
 		contactos.remove(index);
 	}
-	public void escribirJson() {
-		/*Gson gson = new Gson();
-		String json = gson.toJson(contactos);
-		try (Writer writer = new FileWriter("Output.json")) {
-            writer.write(json);
-        } catch (IOException e) {}*/
+	/*public void escribirJson() {
 		
+		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try (Writer writer = new FileWriter("contactos.json")) {
-            Gson gson = new GsonBuilder().create();
             gson.toJson(contactos, writer);
         } catch (IOException e) {}
 	}
 	public void leerJson() {
-		
-	}
+		Gson gson = new Gson();
+		File	archivo  = new File("Output.json");
+		FileReader fr = new FileReader(archivo);
+    	Type userListType = new TypeToken<ArrayList<Contacto>>(){}.getType();
+    	try {
+			BufferedReader br = new BufferedReader(fr);
+			//contacts = gson.fromJson(fr, userListType);
+			 contactos = gson.fromJson(userJson, userListType);  
+		   //String linea = br.readLine();
+		   System.out.println(contacts.get(0));
+    	} catch (Exception ex) {
+    	    ex.printStackTrace();
+    	}
+	}*/
 	
 	
 }

@@ -1,0 +1,20 @@
+{
+  "contactos": [
+    {
+      "nombre": "Pablo",
+      "apellidos": "Garcia",
+      "empresa": "garcilados",
+      "telefono": "662506",
+      "email": "xsds",
+      "direccion": "sdfsd"
+    },
+    {
+      "nombre": "Luis",
+      "apellidos": "Llamazares",
+      "empresa": "vagabundo",
+      "telefono": "668",
+      "email": "loloito",
+      "direccion": "asd"
+    }
+  ]
+}
