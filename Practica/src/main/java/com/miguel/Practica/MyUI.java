@@ -19,7 +19,8 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -42,7 +43,7 @@ public class MyUI extends UI {
     protected void init(VaadinRequest request) {
     	agenda.addContact("Pablo", "Garcia","garcilados", "662506", "xsds", "sdfsd");
     	agenda.addContact("Luis", "Llamazares","vagabundo", "668", "loloito", "asd");
-
+    	//agenda.escribirJson();
         configureComponents();
         buildLayout();
     }

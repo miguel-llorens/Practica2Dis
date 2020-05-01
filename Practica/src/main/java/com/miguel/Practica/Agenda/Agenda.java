@@ -1,6 +1,12 @@
 package com.miguel.Practica.Agenda;
 
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 
 
@@ -36,7 +42,21 @@ public class Agenda {
 	public void deleteContact(int index) {
 		contactos.remove(index);
 	}
-	
+	public void escribirJson() {
+		/*Gson gson = new Gson();
+		String json = gson.toJson(contactos);
+		try (Writer writer = new FileWriter("Output.json")) {
+            writer.write(json);
+        } catch (IOException e) {}*/
+		
+		try (Writer writer = new FileWriter("contactos.json")) {
+            Gson gson = new GsonBuilder().create();
+            gson.toJson(contactos, writer);
+        } catch (IOException e) {}
+	}
+	public void leerJson() {
+		
+	}
 	
 	
 }

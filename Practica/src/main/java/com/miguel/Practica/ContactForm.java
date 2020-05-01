@@ -26,6 +26,8 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class ContactForm extends FormLayout{
 	
@@ -137,8 +139,6 @@ public class ContactForm extends FormLayout{
 	
 	public void save(Button.ClickEvent event) {
 		
-		
-		
 	    try {
 	        binder.writeBean(contacto);
 	        // A real application would also save the updated person
@@ -154,6 +154,7 @@ public class ContactForm extends FormLayout{
 		getUI().contactList.getDataProvider().refreshAll();
 		currentState = State.INVISIBLE;
 		setVisible(false);
+		
 	}
 	
 	public void cancel(Button.ClickEvent event) {
