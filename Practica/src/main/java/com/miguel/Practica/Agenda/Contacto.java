@@ -1,5 +1,9 @@
 package com.miguel.Practica.Agenda;
 
+import java.util.regex.Pattern;
+
+import org.hamcrest.Matcher;
+
 public class Contacto {
 
 	private String id;
@@ -65,5 +69,27 @@ public class Contacto {
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public Object isValidTelefono(String telefono) {
+		Pattern p = Pattern.compile("[0-9]{9}"); 
+		  
+        // Pattern class contains matcher() method 
+        // to find matching between given number  
+        // and regular expression 
+        java.util.regex.Matcher m = p.matcher(telefono); 
+        return (((java.util.regex.Matcher) m).find() && m.group().equals(telefono)); 
+	}
+
+	public Object isValidEmail(String email2) {
+		String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
+                "[a-zA-Z0-9_+&*-]+)*@" + 
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
+                "A-Z]{2,7}$"; 
+                  
+		Pattern pat = Pattern.compile(emailRegex);
+		if (email == null)
+			return false;
+		return pat.matcher(email).matches();
 	}
 }

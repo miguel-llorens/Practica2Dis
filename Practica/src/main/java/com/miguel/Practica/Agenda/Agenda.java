@@ -47,6 +47,26 @@ public class Agenda {
 	public void deleteContact(int index) {
 		contactos.remove(index);
 	}
+
+
+	public Object getAgendasize() {
+		return contactos.size();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*public void escribirJson() {
 		
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
