@@ -44,8 +44,8 @@ public class Agenda {
 	}
 	
 	
-	public void deleteContact(int index) {
-		contactos.remove(index);
+	public void deleteContact(String telefono) {
+		contactos.remove(telefono);
 	}
 
 
