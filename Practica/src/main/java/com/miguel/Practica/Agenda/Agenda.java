@@ -37,6 +37,9 @@ public class Agenda {
 		contactos.remove(index);
 	}
 	
-	
+	public int getAgendasize()
+	{
+		return contactos.size();
+	}
 	
 }
