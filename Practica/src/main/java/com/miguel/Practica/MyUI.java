@@ -1,11 +1,14 @@
 package com.miguel.Practica;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Set;
 
 import javax.servlet.annotation.WebServlet;
 
 import com.miguel.Practica.Agenda.Agenda;
 import com.miguel.Practica.Agenda.Contacto;
+import com.miguel.Practica.Agenda.Json;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Binder;
@@ -19,7 +22,8 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -30,21 +34,29 @@ import com.vaadin.ui.VerticalLayout;
  */
 @Theme("mytheme")
 public class MyUI extends UI {
-	
 	Agenda agenda = new Agenda();
+	File file = new File("contactos.json");
 	TextField find = new TextField();
+	Json json = new Json();
     Grid<Contacto> contactList = new Grid<>(Contacto.class);
     Button botonNewContact = new Button("Nuevo Contacto");
-    ContactForm contactForm = new ContactForm(agenda);	
+    ContactForm contactForm = new ContactForm(agenda, json);	
     
     
     @Override
     protected void init(VaadinRequest request) {
+    	try {
+			json.leerJson(agenda, file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     	agenda.addContact("Pablo", "Garcia","garcilados", "662506", "xsds", "sdfsd");
     	agenda.addContact("Luis", "Llamazares","vagabundo", "668", "loloito", "asd");
-
+    	
         configureComponents();
         buildLayout();
+        
     }
 
     

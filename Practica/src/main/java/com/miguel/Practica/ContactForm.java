@@ -6,6 +6,7 @@ import java.util.Locale;
 
 import com.miguel.Practica.Agenda.Agenda;
 import com.miguel.Practica.Agenda.Contacto;
+import com.miguel.Practica.Agenda.Json;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.data.Binder;
@@ -26,6 +27,8 @@ import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.themes.ValoTheme;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 public class ContactForm extends FormLayout{
 	
@@ -47,15 +50,19 @@ public class ContactForm extends FormLayout{
     
     State currentState = State.INVISIBLE;
     
+    
+    Json json;
     Agenda agenda;
     Contacto contacto;
     Binder<Contacto> binder;
     
     
 
-	public ContactForm(Agenda agendaPasada) {
+	public ContactForm(Agenda agendaPasada, Json jsonPasado) {
 		
 		agenda = agendaPasada;
+		
+		json = jsonPasado;
 		
 		binder = new Binder<>();
 		
@@ -137,23 +144,23 @@ public class ContactForm extends FormLayout{
 	
 	public void save(Button.ClickEvent event) {
 		
-		
-		
 	    try {
 	        binder.writeBean(contacto);
 	        // A real application would also save the updated person
 	        // using the application's backend
 			if (currentState == State.NEW_CONTACT) {
 				agenda.addContact(contacto);
+				
 			}
 	      } catch (ValidationException e) {
 	        Notification.show("No hemos podido guardar el contanto, " +
 	          "puede haber errores en algun campo.");
 	      }
-
+	    json.escribirJson(agenda);
 		getUI().contactList.getDataProvider().refreshAll();
 		currentState = State.INVISIBLE;
 		setVisible(false);
+		
 	}
 	
 	public void cancel(Button.ClickEvent event) {
