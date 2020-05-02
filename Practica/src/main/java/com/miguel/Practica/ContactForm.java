@@ -157,6 +157,7 @@ public class ContactForm extends FormLayout{
 	          "puede haber errores en algun campo.");
 	      }
 	    json.escribirJson(agenda);
+	    Notification.show("XML generado con éxito");
 		getUI().contactList.getDataProvider().refreshAll();
 		currentState = State.INVISIBLE;
 		setVisible(false);
