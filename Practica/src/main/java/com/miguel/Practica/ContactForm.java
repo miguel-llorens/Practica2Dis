@@ -136,7 +136,7 @@ public class ContactForm extends FormLayout {
 			Notification.show("No hemos podido guardar el contanto, " + "puede haber errores en algun campo.");
 		}
 		json.escribirJson(agenda);
-		Notification.show("XML generado con éxito");
+		Notification.show("JSON generado con éxito");
 		getUI().contactList.getDataProvider().refreshAll();
 		currentState = State.INVISIBLE;
 		setVisible(false);

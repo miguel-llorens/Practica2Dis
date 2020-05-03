@@ -64,13 +64,7 @@ public class Contacto {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
-
+	
 	public Object isValidTelefono(String telefono) {
 		Pattern p = Pattern.compile("[0-9]{9}"); 
 		  
