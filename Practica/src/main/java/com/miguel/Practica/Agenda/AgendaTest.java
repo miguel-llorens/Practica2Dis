@@ -77,7 +77,7 @@ public class AgendaTest {
 	public void DeleteContacto()
 	{
 		agenda.addContact("Luis", "Llamazares", "ufv", "666666666",  "g", "h");
-		agenda.deleteContact("666666666");
+		agenda.deleteContact(contacto);
 		assertEquals(1, agenda.getAgendasize());
 	}
 	

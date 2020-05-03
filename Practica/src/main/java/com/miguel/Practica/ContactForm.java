@@ -121,7 +121,7 @@ public class ContactForm extends FormLayout {
 		setVisible(true);
 
 	}
-
+	
 	public void save(Button.ClickEvent event) {
 
 		try {
@@ -133,7 +133,7 @@ public class ContactForm extends FormLayout {
 
 			}
 		} catch (ValidationException e) {
-			Notification.show("No hemos podido guardar el contanto, " + "puede haber errores en algun campo.");
+			Notification.show("No hemos podido guardar el contacto, " + "puede haber errores en algun campo.");
 		}
 		json.escribirJson(agenda);
 		Notification.show("JSON generado con éxito");
@@ -145,9 +145,11 @@ public class ContactForm extends FormLayout {
 
 	public void delete(Button.ClickEvent event) {
 		
-		contacto = binder.getBean();
-		agenda.deleteContact(telefono.getValue());
-	    
+//			contacto = binder.getBean();
+//			
+//			agenda.deleteContact(contacto);
+//		
+		
 	}
 
 	public void cancel(Button.ClickEvent event) {

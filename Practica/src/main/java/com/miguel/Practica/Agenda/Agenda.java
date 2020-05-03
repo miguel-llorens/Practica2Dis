@@ -42,13 +42,13 @@ public class Agenda {
 	}
 	
 	
-	public void deleteContact(String telefono) {
-		contactos.remove(telefono);
+	public Object getAgendasize() {
+		return contactos.size();
 	}
 
 
-	public Object getAgendasize() {
-		return contactos.size();
+	public void deleteContact(Contacto contacto) {
+		contactos.remove(contacto);
 	}
 	
 	

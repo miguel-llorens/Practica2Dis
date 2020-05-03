@@ -51,8 +51,9 @@ public class MyUI extends UI {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    	agenda.addContact("Pablo", "Garcia","garcilados", "662506", "xsds", "sdfsd");
-    	agenda.addContact("Luis", "Llamazares","vagabundo", "668", "loloito", "asd");
+    	
+    	agenda.addContact("Pablo", "Garcia","garcilados", "662506857", "pablogarcia@gmail.com", "c/ vallecas");
+    	agenda.addContact("Luis", "Llamazares","vagabundo", "668758662", "luisllamazares@gmail.com", "c/ vallecas");
     	
         configureComponents();
         buildLayout();
@@ -70,7 +71,6 @@ public class MyUI extends UI {
     	find.setValueChangeMode(ValueChangeMode.EAGER);
     	find.addValueChangeListener(e -> refreshContacts());
     	contactList.setItems(agenda.getContactos());
-    	contactList.removeColumn("id");
     	contactList.removeColumn("empresa");
     	contactList.removeColumn("email");
     	contactList.removeColumn("direccion");

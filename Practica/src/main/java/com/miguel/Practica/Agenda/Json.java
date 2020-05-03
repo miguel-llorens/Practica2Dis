@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import com.vaadin.ui.Dependency.Type;
 
@@ -29,8 +31,13 @@ public class Json {
 		return true;
 	}
 	public Agenda leerJson(Agenda escriboAgenda, File archivo) throws FileNotFoundException {
-
-		Gson gson = new Gson();
+		
+//		JsonParser parser = new JsonParser();
+//        FileReader fr = new FileReader("datos.json");
+//        JsonElement datos = parser.parse(fr);
+//        
+        
+        Gson gson = new Gson();
 		escriboAgenda = gson.fromJson(new FileReader(archivo), Agenda.class);       
 		return escriboAgenda;
 	}
