@@ -21,11 +21,12 @@ public class Json {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public void escribirJson(Agenda contactos) {
+	public boolean escribirJson(Agenda contactos) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		try (Writer writer = new FileWriter("contactos.json")) {
             gson.toJson(contactos, writer);
         } catch (IOException e) {}
+		return true;
 	}
 	public Agenda leerJson(Agenda escriboAgenda, File archivo) throws FileNotFoundException {
 

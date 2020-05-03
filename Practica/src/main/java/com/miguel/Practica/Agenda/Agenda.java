@@ -26,7 +26,6 @@ public class Agenda {
 	}
 	
 
-
 	public ArrayList<Contacto> getContactos() {
 		return contactos;
 	}

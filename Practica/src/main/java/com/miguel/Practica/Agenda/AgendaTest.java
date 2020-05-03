@@ -1,6 +1,8 @@
 package com.miguel.Practica.Agenda;
 import static org.junit.Assert.*;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import org.json.JSONException;
@@ -26,6 +28,7 @@ public class AgendaTest {
 	public void Initialize()
 	{
 		agenda = new Agenda();
+		json = new Json();
 		contacto = new Contacto("Luis", "Llamazares", "ufv", "666666666",  "g@gmail.com", "g");
 		contacto2 = new Contacto("Luis", "Llamazares", "ufv", "666666666",  "g", "g");
 	}
@@ -39,11 +42,11 @@ public class AgendaTest {
 	}
 	
 	
-//	@Test
-//	public void ArrayContacto()
-//	{
-//		ArrayList<Contacto> getContactos();
-//	}
+	@Test
+	public void ArrayContacto()
+	{
+		assertEquals(agenda.getContactos(), agenda.getContactos());
+	}
 	
 //	public ArrayList<Contacto> getContactos() {
 //		return contactos;
@@ -167,26 +170,18 @@ public class AgendaTest {
 	}
 	
 	
+	@Test
+	public void JsonTestWrite() {
+		
+		assertTrue(json.escribirJson(agenda));
+	}
 	
+	@Test
+	public void JsonTestRead() throws FileNotFoundException {
+		
+		File jsonfile = new File("contactos.json");
+		
+		json.leerJson(agenda, jsonfile);
+	}
 	
-	
-	
-	
-//	@Test
-//	public void verifySimilar() {
-//		String expected = "{\"nombre\":\"Luis\"}";
-//		
-//		try {
-//			JSONAssert.assertEquals(
-//					"{\"nombre\":\"Luis\"}", expected, JSONCompareMode.LENIENT);
-//		} catch (JSONException e) {
-//			assertFalse(false);
-//		}
-//		
-//	}
-	
-	
-	
-	
-
 }

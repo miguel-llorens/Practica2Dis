@@ -1,27 +1,3 @@
 {
-  "contactos": [
-    {
-      "nombre": "Pablo",
-      "apellidos": "Garcia",
-      "empresa": "garcilados",
-      "telefono": "662506",
-      "email": "xsds",
-      "direccion": "sdfsd"
-    },
-    {
-      "nombre": "Luis",
-      "apellidos": "Llamazares",
-      "empresa": "vagabundo",
-      "telefono": "668",
-      "email": "loloito",
-      "direccion": "asd"
-    },
-    {
-      "nombre": "Guillermo",
-      "apellidos": "Ventas",
-      "empresa": "eee",
-      "telefono": "666666666",
-      "email": "willim.mail@gmail.com"
-    }
-  ]
+  "contactos": []
 }

@@ -82,8 +82,6 @@ public class Contacto {
                 "A-Z]{2,7}$"; 
                   
 		Pattern pat = Pattern.compile(emailRegex);
-		if (email == null)
-			return false;
 		return pat.matcher(email).matches();
 	}
 }
