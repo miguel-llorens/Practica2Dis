@@ -145,8 +145,8 @@ public class ContactForm extends FormLayout {
 
 	public void delete(Button.ClickEvent event) {
 		
-//		contacto = binder.getBean();
-//	    agenda.deleteContact(telefono.getValue());
+		contacto = binder.getBean();
+		agenda.deleteContact(telefono.getValue());
 	    
 	}
 

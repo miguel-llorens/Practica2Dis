@@ -43,12 +43,13 @@ public class AgendaTest {
 		assertEquals(1, agenda.getAgendasize());
 	}
 	
-//	@Test
-//	public void DeleteContacto()
-//	{
-//		agenda.deleteContact(1);
-//		
-//	}
+	@Test
+	public void DeleteContacto()
+	{
+		agenda.addContact("Luis", "Llamazares", "ufv", "666666666",  "g", "h");
+		agenda.deleteContact("666666666");
+		assertEquals(1, agenda.getAgendasize());
+	}
 	
 	@Test
 	public void ContactoExistente()
