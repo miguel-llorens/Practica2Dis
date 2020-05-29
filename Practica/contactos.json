@@ -4,24 +4,25 @@
       "nombre": "Pablo",
       "apellidos": "Garcia",
       "empresa": "garcilados",
-      "telefono": "662506666",
-      "email": "xsds",
-      "direccion": "sdfsd"
+      "telefono": "662506857",
+      "email": "pablogarcia@gmail.com",
+      "direccion": "c/ vallecas"
     },
     {
       "nombre": "Luis",
       "apellidos": "Llamazares",
       "empresa": "vagabundo",
-      "telefono": "668",
-      "email": "loloito",
-      "direccion": "asd"
+      "telefono": "668758662",
+      "email": "luisllamazares@gmail.com",
+      "direccion": "c/ vallecas"
     },
     {
-      "nombre": "Guillermo",
-      "apellidos": "Ventas",
-      "empresa": "jj",
-      "telefono": "680246515",
-      "email": "vdobleg@gmail.com"
+      "nombre": "alala",
+      "apellidos": "sosso",
+      "empresa": "kakaa",
+      "telefono": "272727299",
+      "email": "smsms",
+      "direccion": "msmsms"
     }
   ]
 }

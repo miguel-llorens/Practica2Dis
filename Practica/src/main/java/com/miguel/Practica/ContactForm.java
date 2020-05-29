@@ -44,7 +44,7 @@ public class ContactForm extends FormLayout {
 	TextField telefono = new TextField("Telefono");
 	TextField email = new TextField("Email");
 	TextField empresa = new TextField("Empresa");
-
+	TextField direccion = new TextField("Direccion");
 	State currentState = State.INVISIBLE;
 
 	Json json;
@@ -74,7 +74,8 @@ public class ContactForm extends FormLayout {
 		binder.forField(apellido).bind(Contacto::getApellidos, Contacto::setApellidos);
 
 		binder.forField(empresa).bind(Contacto::getEmpresa, Contacto::setEmpresa);
-
+		
+		binder.forField(direccion).bind(Contacto::getDireccion, Contacto::setDireccion);
 		configureComponents();
 		buildLayout();
 	}
@@ -97,7 +98,7 @@ public class ContactForm extends FormLayout {
 		setMargin(true);
 
 		VerticalLayout vertical = new VerticalLayout();
-		addComponents(nombre, apellido, telefono, email, empresa);
+		addComponents(nombre, apellido, telefono, email, empresa,direccion);
 		HorizontalLayout actions = new HorizontalLayout(save, delete, cancel);
 		actions.setSpacing(true);
 
