@@ -3,6 +3,7 @@ package com.miguel.Practica;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Set;
+import java.util.UUID;
 
 import javax.servlet.annotation.WebServlet;
 
@@ -52,8 +53,8 @@ public class MyUI extends UI {
 			e.printStackTrace();
 		}
     	
-    	agenda.addContact("Pablo", "Garcia","garcilados", "662506857", "pablogarcia@gmail.com", "c/ vallecas");
-    	agenda.addContact("Luis", "Llamazares","vagabundo", "668758662", "luisllamazares@gmail.com", "c/ vallecas");
+    	agenda.addContact("Pablo", "Garcia","garcilados", "662506857", "pablogarcia@gmail.com", "c/ vallecas",UUID.randomUUID().toString());
+    	agenda.addContact("Luis", "Llamazares","vagabundo", "668758662", "luisllamazares@gmail.com", "c/ vallecas",UUID.randomUUID().toString());
     	
         configureComponents();
         buildLayout();

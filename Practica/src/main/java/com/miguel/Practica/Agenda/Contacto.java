@@ -18,7 +18,7 @@ public class Contacto {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Contacto(String nombre, String apellidos, String empresa, String telefono, String email, String direccion) {
+	public Contacto(String nombre, String apellidos, String empresa, String telefono, String email, String direccion,String id) {
 		super();
 		this.nombre = nombre;	
 		this.apellidos = apellidos;
@@ -26,8 +26,18 @@ public class Contacto {
 		this.telefono = telefono;
 		this.email = email;
 		this.direccion = direccion;
+		this.id = id;
 	}
 	
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}

@@ -1,6 +1,6 @@
 package com.miguel.Practica.Agenda;
 import static org.junit.Assert.*;
-
+import java.util.UUID;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -29,8 +29,8 @@ public class AgendaTest {
 	{
 		agenda = new Agenda();
 		json = new Json();
-		contacto = new Contacto("Luis", "Llamazares", "ufv", "666666666",  "g@gmail.com", "g");
-		contacto2 = new Contacto("Luis", "Llamazares", "ufv", "666666666",  "g", "g");
+		contacto = new Contacto("Luis", "Llamazares", "ufv", "666666666",  "g@gmail.com", "g",UUID.randomUUID().toString());
+		contacto2 = new Contacto("Luis", "Llamazares", "ufv", "666666666",  "g", "g",UUID.randomUUID().toString());
 	}
 	
 	
@@ -76,7 +76,7 @@ public class AgendaTest {
 	@Test
 	public void DeleteContacto()
 	{
-		agenda.addContact("Luis", "Llamazares", "ufv", "666666666",  "g", "h");
+		agenda.addContact("Luis", "Llamazares", "ufv", "666666666",  "g", "h",UUID.randomUUID().toString());
 		agenda.deleteContact(contacto);
 		assertEquals(1, agenda.getAgendasize());
 	}

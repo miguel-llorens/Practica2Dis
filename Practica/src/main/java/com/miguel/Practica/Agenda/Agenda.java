@@ -7,6 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -31,9 +32,9 @@ public class Agenda {
 	}
 
 
-	public void addContact(String nombre, String apellidos, String empresa, String telefono,String email, String direccion) {
+	public void addContact(String nombre, String apellidos, String empresa, String telefono,String email, String direccion,String id) {
 		
-		Contacto nuevoContacto = new Contacto(nombre, apellidos, empresa, telefono, email, direccion);
+		Contacto nuevoContacto = new Contacto(nombre, apellidos, empresa, telefono, email, direccion,UUID.randomUUID().toString());
 		contactos.add(nuevoContacto);
 	}
 	

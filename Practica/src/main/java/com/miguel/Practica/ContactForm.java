@@ -3,6 +3,7 @@ package com.miguel.Practica;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.UUID;
 
 import com.miguel.Practica.Agenda.Agenda;
 import com.miguel.Practica.Agenda.Contacto;
@@ -45,6 +46,7 @@ public class ContactForm extends FormLayout {
 	TextField email = new TextField("Email");
 	TextField empresa = new TextField("Empresa");
 	TextField direccion = new TextField("Direccion");
+	
 	State currentState = State.INVISIBLE;
 
 	Json json;
@@ -76,6 +78,9 @@ public class ContactForm extends FormLayout {
 		binder.forField(empresa).bind(Contacto::getEmpresa, Contacto::setEmpresa);
 		
 		binder.forField(direccion).bind(Contacto::getDireccion, Contacto::setDireccion);
+		
+		
+	
 		configureComponents();
 		buildLayout();
 	}
@@ -130,8 +135,9 @@ public class ContactForm extends FormLayout {
 			// A real application would also save the updated person
 			// using the application's backend
 			if (currentState == State.NEW_CONTACT) {
+				
 				agenda.addContact(contacto);
-
+				
 			}
 		} catch (ValidationException e) {
 			Notification.show("No hemos podido guardar el contacto, " + "puede haber errores en algun campo.");
