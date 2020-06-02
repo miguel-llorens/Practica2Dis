@@ -47,13 +47,15 @@ public class ContactForm extends FormLayout {
 	TextField empresa = new TextField("Empresa");
 	TextField direccion = new TextField("Direccion");
 	
+	
 	State currentState = State.INVISIBLE;
 
 	Json json;
 	Agenda agenda;
 	Contacto contacto;
 	Binder<Contacto> binder;
-
+	String id = UUID.randomUUID().toString();
+	
 	public ContactForm(Agenda agendaPasada, Json jsonPasado) {
 
 		agenda = agendaPasada;
@@ -61,6 +63,8 @@ public class ContactForm extends FormLayout {
 		json = jsonPasado;
 
 		binder = new Binder<>();
+		
+		
 
 		binder.forField(email).bind(Contacto::getEmail, Contacto::setEmail);
 
@@ -68,7 +72,8 @@ public class ContactForm extends FormLayout {
 				.bind(Contacto::getNombre, Contacto::setNombre);
 
 //		
-
+		
+		
 		binder.forField(telefono)
 				.withValidator(new RegexpValidator("Esto no es un numero de telefono", "^[0-9]{2,3}-? ?[0-9]{6,7}$"))
 				.bind(Contacto::getTelefono, Contacto::setTelefono);
@@ -136,6 +141,7 @@ public class ContactForm extends FormLayout {
 			// using the application's backend
 			if (currentState == State.NEW_CONTACT) {
 				
+				contacto.setId(UUID.randomUUID().toString());
 				agenda.addContact(contacto);
 				
 			}
