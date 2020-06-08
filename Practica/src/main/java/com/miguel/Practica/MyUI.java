@@ -24,6 +24,7 @@ import com.vaadin.ui.VerticalLayout;
 public class MyUI extends UI {
 
 	Agenda agenda = new Agenda();
+<<<<<<< Updated upstream
 	
 	
 
@@ -32,6 +33,33 @@ public class MyUI extends UI {
     @Override
     protected void init(VaadinRequest vaadinRequest) {
         final VerticalLayout layout = new VerticalLayout();
+=======
+	File file = new File("contactos.json");
+	TextField find = new TextField();
+	Json json = new Json();
+    Grid<Contacto> contactList = new Grid<>(Contacto.class);
+    Button botonNewContact = new Button("Nuevo Contacto");
+    ContactForm contactForm;	
+    
+    
+    @Override
+    protected void init(VaadinRequest request) {
+    	try {
+			agenda = json.leerJson(file);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	//agenda.addContact("Pablo", "Garcia","garcilados", "6625555506", "xsds", "sdfsd");
+    	//agenda.addContact("Luis", "Llamazares","vagabundo", "6655558", "loloito", "asd");
+    	contactForm = new ContactForm(agenda, json);
+    	
+    	
+        configureComponents();
+    	//agenda.addContact("Pablo", "Garcia","garcilados", "6625555506", "xsds", "sdfsd");
+    	//refreshContacts();
+        buildLayout();
+>>>>>>> Stashed changes
         
         final TextField name = new TextField();
         name.setCaption("Type your name here:");

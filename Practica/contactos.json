@@ -1,0 +1,25 @@
+{
+  "contactos": [
+    {
+      "nombre": "Archy",
+      "apellidos": "",
+      "empresa": "",
+      "telefono": "12345677",
+      "email": ""
+    },
+    {
+      "nombre": "Pablo",
+      "apellidos": "Albacio",
+      "empresa": "",
+      "telefono": "255555555",
+      "email": ""
+    },
+    {
+      "nombre": "Obrigado",
+      "apellidos": "cruds",
+      "empresa": "",
+      "telefono": "888888877",
+      "email": ""
+    }
+  ]
+}
