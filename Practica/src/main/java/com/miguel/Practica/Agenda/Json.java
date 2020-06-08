@@ -30,16 +30,10 @@ public class Json {
         } catch (IOException e) {}
 		return true;
 	}
-	public Agenda leerJson(Agenda escriboAgenda, File archivo) throws FileNotFoundException {
-		
-//		JsonParser parser = new JsonParser();
-//        FileReader fr = new FileReader("datos.json");
-//        JsonElement datos = parser.parse(fr);
-//        
-        
-        Gson gson = new Gson();
-		escriboAgenda = gson.fromJson(new FileReader(archivo), Agenda.class);       
-		return escriboAgenda;
+	public Agenda leerJson(File archivo) throws FileNotFoundException {
+
+		Gson gson = new Gson();
+		return gson.fromJson(new FileReader("contactos.json"), Agenda.class);       
 	}
 	
 	

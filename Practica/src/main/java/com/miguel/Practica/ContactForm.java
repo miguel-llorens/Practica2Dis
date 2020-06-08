@@ -105,14 +105,16 @@ public class ContactForm extends FormLayout {
 
 	private void buildLayout() {
 		setSizeUndefined();
-		setMargin(true);
-
-		VerticalLayout vertical = new VerticalLayout();
-		addComponents(nombre, apellido, telefono, email, empresa,direccion);
-		HorizontalLayout actions = new HorizontalLayout(save, delete, cancel);
-		actions.setSpacing(true);
-
-		addComponents(actions);
+        setMargin(true);
+        
+        VerticalLayout vertical = new VerticalLayout ();
+        addComponents(nombre, apellido, telefono, email, empresa);
+        HorizontalLayout actions = new HorizontalLayout(save, cancel);
+        actions.setSpacing(true);
+        addComponents(actions);
+        HorizontalLayout eliminar = new HorizontalLayout(delete);
+        
+        addComponents(eliminar);
 	}
 
 	public void editContact(Contacto contactoEdit) {
@@ -158,11 +160,15 @@ public class ContactForm extends FormLayout {
 
 	public void delete(Button.ClickEvent event) {
 		
-//			contacto = binder.getBean();
-//			
-//			agenda.deleteContact(contacto);
-//		
-		
+		if (currentState == State.EDIT_CONTACT) {
+			agenda.deleteContact(contacto);
+			
+		}
+
+	    json.escribirJson(agenda);
+		getUI().contactList.getDataProvider().refreshAll();
+		currentState = State.INVISIBLE;
+		setVisible(false);
 	}
 
 	public void cancel(Button.ClickEvent event) {

@@ -41,21 +41,21 @@ public class MyUI extends UI {
 	Json json = new Json();
     Grid<Contacto> contactList = new Grid<>(Contacto.class);
     Button botonNewContact = new Button("Nuevo Contacto");
-    ContactForm contactForm = new ContactForm(agenda, json);	
+    ContactForm contactForm;	
     
     
     @Override
     protected void init(VaadinRequest request) {
     	try {
-			json.leerJson(agenda, file);
+			agenda = json.leerJson(file);
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
-    	agenda.addContact("Pablo", "Garcia","garcilados", "662506857", "pablogarcia@gmail.com", "c/ vallecas",UUID.randomUUID().toString());
-    	agenda.addContact("Luis", "Llamazares","vagabundo", "668758662", "luisllamazares@gmail.com", "c/ vallecas",UUID.randomUUID().toString());
-    	
+    	//agenda.addContact("Pablo", "Garcia","garcilados", "662506857", "pablogarcia@gmail.com", "c/ vallecas",UUID.randomUUID().toString());
+    	//agenda.addContact("Luis", "Llamazares","vagabundo", "668758662", "luisllamazares@gmail.com", "c/ vallecas",UUID.randomUUID().toString());
+    	contactForm = new ContactForm(agenda, json);
         configureComponents();
         buildLayout();
         
@@ -75,6 +75,7 @@ public class MyUI extends UI {
     	contactList.removeColumn("empresa");
     	contactList.removeColumn("email");
     	contactList.removeColumn("direccion");
+    	contactList.removeColumn("id");
     	contactList.setColumnOrder("nombre","apellidos","telefono");
     	contactList.setSelectionMode(Grid.SelectionMode.SINGLE);
     	contactList.addSelectionListener(e -> {
