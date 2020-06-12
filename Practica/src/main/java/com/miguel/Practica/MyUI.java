@@ -68,7 +68,7 @@ public class MyUI extends UI {
     	botonNewContact.addClickListener(e -> contactForm.newContact());
     	
     	
-    	find.setPlaceholder("Busca un contacto");
+    	find.setPlaceholder("Busca un contacto (En Desarrollo)");
     	find.setValueChangeMode(ValueChangeMode.EAGER);
     	find.addValueChangeListener(e -> refreshContacts());
     	contactList.setItems(agenda.getContactos());
