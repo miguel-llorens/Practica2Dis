@@ -15,7 +15,7 @@ import org.skyscreamer.jsonassert.JSONCompareMode;
 import com.google.gson.Gson;
 import com.miguel.Practica.Agenda.Contacto;
 
-public class AgendaTest {
+public class AppTest {
 
 	
 	Agenda agenda = null;
