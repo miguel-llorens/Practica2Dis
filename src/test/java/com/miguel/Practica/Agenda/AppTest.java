@@ -3,17 +3,9 @@ import static org.junit.Assert.*;
 import java.util.UUID;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
-import org.skyscreamer.jsonassert.JSONAssert;
-import org.skyscreamer.jsonassert.JSONCompareMode;
-
-import com.google.gson.Gson;
-import com.miguel.Practica.Agenda.Contacto;
 
 public class AppTest {
 
@@ -176,7 +168,7 @@ public class AppTest {
 		assertTrue(json.escribirJson(agenda));
 	}
 	
-	//@Test
+	@Test
 	public void JsonTestRead() throws FileNotFoundException {
 		
 		File jsonfile = new File("contactos.json");
