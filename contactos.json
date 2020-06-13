@@ -1,3 +1,13 @@
 {
-  "contactos": []
+  "contactos": [
+    {
+      "id": "14586f93-4dff-4327-b2ab-856ff90a09db",
+      "nombre": "Guillermo",
+      "apellidos": "San Miguel",
+      "empresa": "",
+      "telefono": "633911144",
+      "email": "pipsanmi3@gmail.com",
+      "direccion": ""
+    }
+  ]
 }
