@@ -75,7 +75,7 @@ public class MyUI extends UI {
     	contactList.removeColumn("empresa");
     	contactList.removeColumn("email");
     	contactList.removeColumn("direccion");
-    	contactList.removeColumn("id");
+    	//contactList.removeColumn("id");
     	contactList.setColumnOrder("nombre","apellidos","telefono");
     	contactList.setSelectionMode(Grid.SelectionMode.SINGLE);
     	contactList.addSelectionListener(e -> {
